@@ -24,13 +24,13 @@
 		}
 
 		h2 {
-			left-margin: 60px;
+			margin: 10px 0px 10px 10px;
 			font-family: "Open Sans", Helvetica Neue, Helvetica, sans-serif;
 			font-size:2.5em;
 		}
 
 		h3 {
-			right-margin: 8px;
+			margin: 0px 4px 0px 0px;
 			font-family: "Open Sans", Helvetica Neue, Helvetica, sans-serif;
 			font-size:0.8em;
 			font-style: italic;
@@ -76,25 +76,25 @@
 	<![endif]-->
 
 	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
+<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />
 </head>
 <body>
 	<header>
 	<p class="header">Return to <a href="http://nachoad.com">nachoad.com</a> or to <a href="http://nachoad.com/projects">projects</a> | Volver a <a href="http://nachoad.com">nachoad.com</a> o a <a href="http://nachoad.com/projects">proyectos</a> </p>
 	</header>
 	<h2>Places where I've been</h2>
-	<H3>Made on 9 Dec 2013. Last update: 14 Feb 2014.</H3>
-	<p><span class="idioma">EN</span> This project came about when I was in Amsterdam. I thought it would be nice to have a map with the cities I've visited throughout my life. You can take a look below:</p>
+	<H3>9 Dec 2013. Last update: 10 Apr 2014.</H3>
+	<p><span class="idioma">EN</span> This project starts when I was in Amsterdam. I thought it would be nice to have a map with the cities I've visited in my life. You can take a look below:</p>
 	<p><span class="idioma">ES</span> Este proyecto surgió cuando estuve en Amsterdam. Pensé que sería bueno tener un mapa con las ciudades que he visitado a lo largo de mi vida. Puedes verlo a continuación:</p>
 	
-	<div id="map" style="height: 600px; box-shadow:0 0 15px #ddd"></div>
+	<div id="map" style="height: 530px; box-shadow:4px 4px 4px #ddd"></div>
 	<script>
 
-		var map = L.map('map').setView([40.41678, -3.70379], 2);
+		var map = L.map('map').setView([40.41678, -35.70379], 3);
 
-		L.tileLayer('http://{s}.tile.cloudmade.com/f54f4472cc2b4bbda2e90566aa9f47fe/3/256/{z}/{x}/{y}.png', {
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-			maxZoom: 18
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/nachoad.hojlc269/{z}/{x}/{y}.png', {
+   		attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
 		}).addTo(map);
 
 		var marker01 = L.marker([40.41678, -3.70379]).addTo(map);//Madrid
@@ -120,6 +120,7 @@
 		var marker20 = L.marker([39.36285, -6.85290]).addTo(map);//Cáceres
 		var marker21 = L.marker([28.38251, -81.53208]).addTo(map);//Disneyworld Orlando, FL
 		var marker22 = L.marker([28.64589, -80.71551]).addTo(map);//Kennedy Space Center
+		var marker23 = L.marker([37.983716, 23.729310]).addTo(map);//Athens
 
 
 		marker01.bindPopup("<b>Madrid</b><br>I live here! :)");
@@ -145,11 +146,14 @@
 		marker20.bindPopup("<b>C&aacute;ceres</b><br>On holidays<br><i>May - 2012</i>");
 		marker21.bindPopup("<b>Orlando, FL</b><br>Work and holidays<br>We were in Disneyworld. And we could see 'Magic Johnson' who came to give us a speech.<br><i>Jan - 2014</i>");
 		marker22.bindPopup("<b>Kennedy Space Center</b><br>Cape Canaveral<br>We were visiting the NASA facilities. Amazing!<br><i>Jan - 2014</i>");
+		marker23.bindPopup("<b>Athens</b><br>Just for work.<br><i>Apr - 2014</i>");
 
+		map.featureLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    	});
 
+	L.control.fullscreen().addTo(map);
 
 	</script>
-	<p><span class="idioma">EN</span> Made with <a href="http://leafletjs.com/" target="_blank">LeafletJS</a>.</p>
-	<p><span class="idioma">ES</span> Hecho con <a href="http://leafletjs.com/" target="_blank">LeafletJS</a>.</p>
-</body>
+	</body>
 </html>
