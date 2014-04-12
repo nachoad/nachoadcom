@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>My map</title>
+	
+	<style>
+		body {
+			font: 1em sans-serif;
+			margin:0em auto 4em auto;
+			width: 960px;
+		}
+
+		iframe{
+			width:940px;
+			height:330px;
+			border:0px solid #dedede;
+		}
+
+		h1 {
+			left-margin: 60px;
+			font-family: "Open Sans", Helvetica Neue, Helvetica, sans-serif;
+			font-size:5em;
+		}
+
+		h2 {
+			left-margin: 60px;
+			font-family: "Open Sans", Helvetica Neue, Helvetica, sans-serif;
+			font-size:2.5em;
+		}
+
+		h3 {
+			right-margin: 8px;
+			font-family: "Open Sans", Helvetica Neue, Helvetica, sans-serif;
+			font-size:0.8em;
+			font-style: italic;
+			text-align: right;
+		}
+
+		p {
+			left-margin: 30px;
+			font-family: "Open Sans", Helvetica Neue, Helvetica, sans-serif;font-size:18px;
+		}
+
+		p.header{
+			margin-top:0px;
+			padding: 1px 3px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+		}
+
+		a {
+			font-color:DodgerBlue;
+			-webkit-text-fill-color: DodgerBlue;
+			text-decoration: none;
+		}
+
+		header {
+			background-color: honeydew;
+		}
+
+		span.idioma {
+			font-size: 1.1em;
+			background-color: PowderBlue;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			padding: 1px 12px;
+		}
+	</style>
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+	<![endif]-->
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+
+</head>
+<body>
+	<header>
+	<p class="header">Return to <a href="http://nachoad.com">nachoad.com</a> or to <a href="http://nachoad.com/projects">projects</a> | Volver a <a href="http://nachoad.com">nachoad.com</a> o a <a href="http://nachoad.com/projects">proyectos</a> </p>
+	</header>
+	<h2>Places where I've been</h2>
+	<H3>Made on 9 Dec 2013. Last update: 14 Feb 2014.</H3>
+	<p><span class="idioma">EN</span> This project came about when I was in Amsterdam. I thought it would be nice to have a map with the cities I've visited throughout my life. You can take a look below:</p>
+	<p><span class="idioma">ES</span> Este proyecto surgió cuando estuve en Amsterdam. Pensé que sería bueno tener un mapa con las ciudades que he visitado a lo largo de mi vida. Puedes verlo a continuación:</p>
+	
+	<div id="map" style="height: 600px; box-shadow:0 0 15px #ddd"></div>
+	<script>
+
+		var map = L.map('map').setView([40.41678, -3.70379], 2);
+
+		L.tileLayer('http://{s}.tile.cloudmade.com/f54f4472cc2b4bbda2e90566aa9f47fe/3/256/{z}/{x}/{y}.png', {
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+			maxZoom: 18
+		}).addTo(map);
+
+		var marker01 = L.marker([40.41678, -3.70379]).addTo(map);//Madrid
+		var marker02 = L.marker([39.46991, -0.37629]).addTo(map);//Valencia
+		var marker03 = L.marker([48.85661, 2.35222]).addTo(map);//Paris
+		var marker04 = L.marker([52.37022, 4.89517]).addTo(map);//Amsterdam
+		var marker05 = L.marker([-33.92487, 18.42406]).addTo(map);//CapeTown
+		var marker06 = L.marker([36.81881, 10.16596]).addTo(map);//Tunis
+		var marker07 = L.marker([29.05976, -13.55976]).addTo(map);//Lanzarote
+		var marker08 = L.marker([38.72530, -9.15004]).addTo(map);//Lisboa
+		var marker09 = L.marker([42.24600, -8.71678]).addTo(map);//Vigo
+		var marker10 = L.marker([42.87821, -8.54484]).addTo(map);//Santiago de Compostela
+		var marker11 = L.marker([41.07114, -2.64348]).addTo(map);//Siguenza
+		var marker12 = L.marker([37.63153, -1.17494]).addTo(map);//Cartagena, Murcia
+		var marker13 = L.marker([39.00973, -0.16558]).addTo(map);//Gandía
+		var marker14 = L.marker([49.00915, 8.37994]).addTo(map);//Karlsruhe
+		var marker15 = L.marker([37.17734, -3.59856]).addTo(map);//Granada
+		var marker16 = L.marker([40.07053, -2.13672]).addTo(map);//Cuenca
+		var marker17 = L.marker([51.39558, -0.70031]).addTo(map);//Ascot
+		var marker18 = L.marker([41.38506, 2.17340]).addTo(map);//Barcelona
+		var marker19 = L.marker([43.25669, -2.92406]).addTo(map);//Bilbao
+		var marker19 = L.marker([43.31833, -1.98123]).addTo(map);//San Sebastian
+		var marker20 = L.marker([39.36285, -6.85290]).addTo(map);//Cáceres
+		var marker21 = L.marker([28.38251, -81.53208]).addTo(map);//Disneyworld Orlando, FL
+		var marker22 = L.marker([28.64589, -80.71551]).addTo(map);//Kennedy Space Center
+
+
+		marker01.bindPopup("<b>Madrid</b><br>I live here! :)");
+		marker02.bindPopup("<b>Valencia</b><br>On holidays<br><i>I go there often :P</i>");
+		marker03.bindPopup("<b>Par&iacute;s</b><br>Two times here, just for work.<br><i>Mar - 2013</i>");
+		marker04.bindPopup("<b>Amsterdam</b><br>One time here, work and holidays.<br><i>May - 2013</i>").openPopup();
+		marker05.bindPopup("<b>Cape Town</b><br>Invited by JB brand, due to my blog.<br><i>Jan - 2009</i>");
+		marker06.bindPopup("<b>Tunisia</b><br>On holidays, at the end of career.<br><i>Feb - 2010</i>");
+		marker07.bindPopup("<b>Lanzarote</b><br>On holidays<br><i>Jul - 2013</i>");
+		marker08.bindPopup("<b>Lisbon</b><br>On holidays<br><i>Aug - 2013</i>");
+		marker09.bindPopup("<b>Vigo</b><br>On holidays<br><i>2000 - 2013</i>");
+		marker10.bindPopup("<b>Santiago de Compostela</b><br>On holidays<br><i>2000 - 2013</i>");
+		marker11.bindPopup("<b>Sig&uuml;enza</b><br>On holidays<br><i>I go there often.</i>");
+		marker12.bindPopup("<b>Cartagena, Murcia</b><br>On holidays<br><i>Jul - 2013</i>");
+		marker13.bindPopup("<b>Gand&iacute;a</b><br>On holidays<br><i>I go there often :P</i>");
+		marker14.bindPopup("<b>Karlsruhe</b><br>On holidays visiting Alberto Mart&iacute;nez<br><i>Dec - 2010</i>");
+		marker15.bindPopup("<b>Granada</b><br>On holidays<br><i>Dec - 2011</i>");
+		marker16.bindPopup("<b>Cuenca</b><br>On holidays<br><i>Mar - 2013</i>");
+		marker17.bindPopup("<b>Ascot, United Kingdom</b><br>Just for work.<br><i>Sep - 2012</i>");
+		marker18.bindPopup("<b>Barcelona</b><br>Just for work.<br><i>Nov - 2012</i>");
+		marker19.bindPopup("<b>Bilbao</b><br>Just for work.<br><i>Nov - 2012</i>");
+		marker19.bindPopup("<b>San Sebastian</b><br>On holidays<br><i>Aug - 2013</i>");
+		marker20.bindPopup("<b>C&aacute;ceres</b><br>On holidays<br><i>May - 2012</i>");
+		marker21.bindPopup("<b>Orlando, FL</b><br>Work and holidays<br>We were in Disneyworld. And we could see 'Magic Johnson' who came to give us a speech.<br><i>Jan - 2014</i>");
+		marker22.bindPopup("<b>Kennedy Space Center</b><br>Cape Canaveral<br>We were visiting the NASA facilities. Amazing!<br><i>Jan - 2014</i>");
+
+
+
+	</script>
+	<p><span class="idioma">EN</span> Made with <a href="http://leafletjs.com/" target="_blank">LeafletJS</a>.</p>
+	<p><span class="idioma">ES</span> Hecho con <a href="http://leafletjs.com/" target="_blank">LeafletJS</a>.</p>
+</body>
+</html>
